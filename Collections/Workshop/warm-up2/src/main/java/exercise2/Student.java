@@ -57,12 +57,12 @@ public class Student {
 
         // TODO Exercise 2 c5) Check if all the fields from Student class are equal to the ones from
         // TODO Exercise 2 c5) Object o (id, lastName, firstName, averageGrade)
-        if ( ! student.id.equals(id) ) return false;
+        if (! student.id.equals(id) ) return false;
         if (! student.firstName.equals(firstName)) return false;
         if (! student.lastName.equals(lastName)) return false;
         if (! student.averageGrade.equals(averageGrade)) return false;
 
-        return false;
+       return true;
 
         // TODO Exercise 2 d) After you finished implementing equals method go to TODO Exercise 2 e) from Exercise2 class
     }
@@ -72,7 +72,13 @@ public class Student {
     // TODO Exercise 2 g) the Student class
     @Override
     public int hashCode() {
-        return 0;
+
+        int result = id;
+        long l = Double.doubleToLongBits(averageGrade);
+
+        result = 31 * result + firstName.hashCode() + lastName.hashCode()+ (int)(l^(l >>>32));
+
+        return result;
         // TODO Exercise 2 h) After you finished implementing hashCode go to TODO Exercise 2 i) from Exercise2 class
     }
 
