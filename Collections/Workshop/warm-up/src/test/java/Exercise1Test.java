@@ -35,19 +35,19 @@ public class Exercise1Test {
         Assert.assertEquals("Test max with iterator", expected.get(2), testResults.get(2));
 }
 
-//    @Test
-//    public void testFor() throws Exception {
-//        List<Integer> testResults = ex1.iterateUsingForLoop();
-//        Assert.assertEquals("Test sum with for", expected.get(0), testResults.get(0));
-//        Assert.assertEquals("Test min with for", expected.get(1), testResults.get(1));
-//        Assert.assertEquals("Test max with for", expected.get(2), testResults.get(2));
-//    }
-//
-//    @Test
-//    public void testForEach() throws Exception {
-//        List<Integer> testResults = ex1.iterateUsingForEachLoop();
-//        Assert.assertEquals("Test sum with foreach", expected.get(0), testResults.get(0));
-//        Assert.assertEquals("Test min with foreach", expected.get(1), testResults.get(1));
-//        Assert.assertEquals("Test max with foreach", expected.get(2), testResults.get(2));
-//    }
+    @Test
+    public void testFor() throws Exception {
+        List<Integer> testResults = ex1.iterateUsingForLoop();
+        Assert.assertEquals("Test sum with for", expected.get(0), testResults.get(0));
+        Assert.assertEquals("Test min with for", expected.get(1), testResults.get(1));
+        Assert.assertEquals("Test max with for", expected.get(2), testResults.get(2));
+    }
+
+    @Test
+    public void testForEach() throws Exception {
+        List<Integer> testResults = ex1.iterateUsingForEachLoop();
+        Assert.assertEquals("Test sum with foreach", expected.get(0), testResults.get(0));
+        Assert.assertEquals("Test min with foreach", expected.get(1), testResults.get(1));
+        Assert.assertEquals("Test max with foreach", expected.get(2), testResults.get(2));
+    }
 }

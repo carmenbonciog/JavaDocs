@@ -1,6 +1,8 @@
 package exercise.exercise2;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Map;
 
 /**
  * Created by Radu.Hoaghe on 20.04.2015.
@@ -10,7 +12,7 @@ import java.util.ArrayList;
  *             This list (MyList) should have the following functionality, besides the functionality
  *             that ArrayList already offers: it should retain in every moment how many different
  *             elements exist in the list.
- *                  
+ *
  *                  Examples: 1. If you have a List that contains: 7 5 3 2 4 1, there are 6 different elements.
  *                            2. If you have a List that contains: 5 6 1 2 5 6, there are 4 different elements.
  *
@@ -36,7 +38,6 @@ import java.util.ArrayList;
  *
  */
 public class MyList<Integer> extends ArrayList<Integer> {
-
     // A counter to hold the number of adds that were made on the list
     private int differentElements;
 
@@ -47,15 +48,72 @@ public class MyList<Integer> extends ArrayList<Integer> {
     // TODO Exercise #2 a) Override add() and addAll() methods so that the list should retain the number of
     // TODO Exercise #2 a) different elements (Hint: check out the methods signatures on the List documentation)
 
+
+    @Override
+    public boolean addAll(Collection<? extends Integer> c) {
+        for(Integer m : c)
+       if (!this.contains(m))
+           differentElements++;
+        return super.addAll(c);
+    }
+
+
+
+    @Override
+    public boolean add(Integer i ) {
+        if(!this.contains(i))
+            differentElements++;
+            return super.add(i);
+
+    }
+
+    @Override
+    public void add(int index,Integer element) {
+        if(!this.contains(element))
+            differentElements++;
+        super.add(index, element);
+    }
+
+    @Override
+    public boolean addAll(int index, Collection<? extends Integer> c) {
+        for(Integer m : c)
+            if (!this.contains(m))
+                differentElements++;
+        return super.addAll(index, c);
+    }
+
     // TODO Exercise #2 b) Override the remove methods so that the number of different elements is updated when
     // TODO Exercise #2 b) an element is removed
     // TODO Exercise #2 b) hint: you need to update the number of different elements only when
     // TODO Exercise #2 b) the element that needs to be removed is the last element of its kind in the list
 
-    // TODO Exercise #2 c) Override the clear method and reset the number of different elements
+    @Override
+    public boolean remove(Object o) {
+       boolean x = super.remove(o);
+        if (!this.contains((Integer)o))
+            differentElements --;
+        return  x;
+    }
+
+    @Override
+    public Integer remove(int index) {
+        Integer w =this.get(index);
+        Integer x = super.remove(index);
+        if (!this.contains(w))
+            differentElements --;
+        return  x;
+    }
+// TODO Exercise #2 c) Override the clear method and reset the number of different elements
+
+    @Override
+    public void clear() {
+        differentElements = 0;
+        super.clear();
+    }
 
     // TODO Exercise #2 d) Return the number of different elements that exist into the list
+
     public int getDifferentElements() {
-        return 0;
+        return differentElements;
     }
 }

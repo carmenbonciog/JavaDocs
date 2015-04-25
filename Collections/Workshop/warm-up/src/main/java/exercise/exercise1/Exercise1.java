@@ -84,16 +84,33 @@ public class Exercise1{
         // This List is used only for testing so you don't need to modify it
         List<Integer> testValues = new ArrayList<Integer>();
 
+        int sum = 0;
+        int min = 0;
+        int max =0;
+
 
         // TODO Exercise #1 b1) In order to pass the tests, you need to name your variables sum, min and max or if
         // TODO Exercise #1 b1) you want to name them differently you need to modify them when you add them to testValues
 
+        for (int i = 0;i < givenList.size();i++){
+            sum += givenList.get(i);
+        }
+        min = givenList.get(0);
+        for (int i = 0; i <givenList.size();i++){
+            if(givenList.get(i) < min)
+                min = givenList.get(i);
+        }
+        max = givenList.get(0);
+        for(int i = 0; i< givenList.size();i++){
+            if (givenList.get(i)> max)
+                max = givenList.get(i);
+        }
 
 
         // TODO Exercise #1 b2) Uncomment the following three lines in order to check your computed values using tests
         testValues.add(sum);
-//        testValues.add(min);
-//        testValues.add(max);
+        testValues.add(min);
+        testValues.add(max);
 
         return testValues;
     }
@@ -103,17 +120,34 @@ public class Exercise1{
 
         // This List is used only for testing so you don't need to modify it
         List<Integer> testValues = new ArrayList<Integer>();
+        int sum = 0;
+        int min = 0;
+        int max = 0;
+
 
 
         // TODO Exercise #1 c1) In order to pass the tests, you need to name your variables sum, min and max or if
         // TODO Exercise #1 c1) you want to name them differently you need to modify them when you add them to testValues
 
+        for (Integer i : givenList){
+            sum += i;
+        }
 
+        min = givenList.get(0);
+        for (Integer i: givenList){
+            if (i< min)
+                min = i;
+        }
 
+        max = givenList.get(0);
+        for (Integer i: givenList){
+            if (i>max)
+                max =i;
+        }
         // TODO Exercise #1 c2) Uncomment the following three lines in order to check your computed values using tests
-//        testValues.add(sum);
-//        testValues.add(min);
-//        testValues.add(max);
+        testValues.add(sum);
+        testValues.add(min);
+        testValues.add(max);
 
         return testValues;
     }
